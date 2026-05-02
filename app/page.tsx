@@ -1,11 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import { products, categories, formatUSD, formatCrypto } from "@/lib/data";
+import { categories, formatUSD, formatCrypto } from "@/lib/data";
+import { getProductsFromSheet } from "@/lib/sheets";
+import { products as staticProducts } from "@/lib/data";
 import { ArrowRight, Shield, Globe, Zap, Lock, ChevronRight } from "lucide-react";
 
-const featured = products.filter(p => p.featured);
+export const revalidate = 60;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const sheetProducts = await getProductsFromSheet();
+  const allProducts = sheetProducts && sheetProducts.length > 0 ? sheetProducts : staticProducts;
+  const featured = allProducts.filter(p => p.featured).slice(0, 6);
   return (
     <div>
       {/* Hero */}
@@ -232,7 +237,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs uppercase tracking-widest text-gold mb-4">Why LuxChain</p>
-            <h2 className="text-4xl md:text-5xl font-bold">Built for the Ultra-Premium Buyer</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Built for the Ultra-Premium Buyer</h2>
+            <p className="text-base" style={{ color: "var(--gray)" }}>Every transaction is protected, compliant, and delivered with white-glove precision.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
