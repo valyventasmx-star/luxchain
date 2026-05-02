@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Shield, Clock, Globe2, ArrowRight } from "lucide-react";
+import { Check, Clock, Shield, Globe2, ArrowRight } from "lucide-react";
 
 export default function ConsultationPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -11,6 +11,7 @@ export default function ConsultationPage() {
     phone: "",
     country: "",
     budget: "",
+    timeline: "",
     message: "",
   });
 
@@ -25,122 +26,167 @@ export default function ConsultationPage() {
       style={{ background: "var(--black)" }}
     >
       <section className="page-shell pb-28">
-        <div className="grid min-h-[720px] grid-cols-1 overflow-hidden rounded-[2.5rem] lg:grid-cols-[0.9fr_1.1fr]"
+        {/* CENTERED HERO */}
+        <div className="mx-auto max-w-4xl text-center pt-8 pb-16">
+          <p className="mb-5 text-xs uppercase tracking-[0.35em] text-gold">
+            White Glove Service
+          </p>
+
+          <h1 className="text-5xl font-bold leading-tight md:text-7xl">
+            Book a Private Consultation
+          </h1>
+
+          <p
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed"
+            style={{ color: "var(--gray-light)" }}
+          >
+            Tell us what you’re looking for. A senior concierge will contact you
+            privately and guide the acquisition end-to-end.
+          </p>
+        </div>
+
+        {/* PREMIUM CENTERED CARD */}
+        <div
+          className="mx-auto grid max-w-6xl grid-cols-1 overflow-hidden rounded-[2rem] lg:grid-cols-[0.85fr_1.15fr]"
           style={{
-            border: "1px solid rgba(201,168,76,0.16)",
             background: "var(--black-2)",
-            boxShadow: "0 40px 120px rgba(0,0,0,0.55)",
+            border: "1px solid rgba(201,168,76,0.18)",
+            boxShadow: "0 40px 120px rgba(0,0,0,0.45)",
           }}
         >
-          {/* LEFT EDITORIAL PANEL */}
-          <div
-            className="relative flex flex-col justify-between p-8 md:p-12"
+          {/* LEFT INFO */}
+          <aside
+            className="p-8 md:p-12"
             style={{
               background:
-                "linear-gradient(135deg, rgba(201,168,76,0.16), rgba(10,10,10,0.98) 45%, rgba(10,10,10,1))",
+                "linear-gradient(135deg, rgba(201,168,76,0.12), rgba(10,10,10,0.98) 50%)",
+              borderRight: "1px solid rgba(201,168,76,0.12)",
             }}
           >
-            <div>
-              <p className="mb-6 text-xs uppercase tracking-[0.35em] text-gold">
-                Private Concierge
-              </p>
+            <h2 className="mb-8 text-3xl font-bold leading-tight">
+              Private acquisition support, handled discreetly.
+            </h2>
 
-              <h1 className="max-w-xl text-5xl font-bold leading-[0.95] md:text-7xl">
-                Secure your next extraordinary asset.
-              </h1>
-
-              <p className="mt-8 max-w-md text-base leading-relaxed" style={{ color: "var(--gray-light)" }}>
-                A senior LuxChain concierge will guide your acquisition privately — from sourcing and negotiation to crypto escrow, compliance, and worldwide delivery.
-              </p>
-            </div>
-
-            <div className="mt-16 grid grid-cols-1 gap-4">
+            <div className="space-y-7">
               {[
-                { icon: <Clock size={18} />, title: "Response within 2 hours" },
-                { icon: <Shield size={18} />, title: "Strictly confidential" },
-                { icon: <Globe2 size={18} />, title: "Worldwide acquisition support" },
+                {
+                  icon: <Clock size={18} />,
+                  title: "Response within 2 hours",
+                  desc: "A senior concierge contacts you directly.",
+                },
+                {
+                  icon: <Shield size={18} />,
+                  title: "Strict confidentiality",
+                  desc: "Every inquiry is handled privately.",
+                },
+                {
+                  icon: <Globe2 size={18} />,
+                  title: "Worldwide delivery",
+                  desc: "Logistics support across 180+ countries.",
+                },
               ].map((item) => (
-                <div key={item.title} className="flex items-center gap-3 text-sm" style={{ color: "var(--gray-light)" }}>
-                  <span className="text-gold">{item.icon}</span>
-                  {item.title}
+                <div key={item.title} className="flex gap-4">
+                  <div className="mt-1 text-gold">{item.icon}</div>
+                  <div>
+                    <p className="font-semibold">{item.title}</p>
+                    <p
+                      className="mt-1 text-sm leading-relaxed"
+                      style={{ color: "var(--gray)" }}
+                    >
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
+          </aside>
 
-          {/* RIGHT FORM PANEL */}
-          <div className="p-6 md:p-12 lg:p-14">
+          {/* FORM */}
+          <div className="p-8 md:p-12">
             {submitted ? (
-              <div className="flex h-full min-h-[520px] flex-col items-center justify-center text-center">
+              <div className="flex min-h-[520px] flex-col items-center justify-center text-center">
                 <div
-                  className="mb-7 flex h-20 w-20 items-center justify-center rounded-full"
+                  className="mb-6 flex h-16 w-16 items-center justify-center rounded-full"
                   style={{
-                    background: "linear-gradient(135deg, var(--gold-dark), var(--gold))",
+                    background:
+                      "linear-gradient(135deg, var(--gold-dark), var(--gold))",
                   }}
                 >
-                  <Check size={34} className="text-black" />
+                  <Check size={28} className="text-black" />
                 </div>
 
-                <h2 className="mb-4 text-4xl font-bold">Request received.</h2>
+                <h3 className="mb-3 text-3xl font-bold">Request received.</h3>
 
-                <p className="max-w-md leading-relaxed" style={{ color: "var(--gray-light)" }}>
-                  Your dedicated concierge will reach out within 2 hours. Please check your email, including spam.
+                <p
+                  className="max-w-md leading-relaxed"
+                  style={{ color: "var(--gray-light)" }}
+                >
+                  Your dedicated concierge will reach out within 2 hours.
                 </p>
               </div>
             ) : (
-              <>
-                <div className="mb-10">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
                   <p className="mb-3 text-xs uppercase tracking-[0.3em] text-gold">
                     Request access
                   </p>
-
-                  <h2 className="text-3xl font-bold md:text-4xl">
-                    Tell us what you&apos;re looking for.
-                  </h2>
+                  <h3 className="text-3xl font-bold">
+                    Share your acquisition details.
+                  </h3>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                    {[
-                      { key: "name", label: "Full name", type: "text" },
-                      { key: "email", label: "Email", type: "email" },
-                      { key: "phone", label: "Phone / WhatsApp", type: "tel" },
-                      { key: "country", label: "Country", type: "text" },
-                    ].map(({ key, label, type }) => (
-                      <div key={key}>
-                        <label className="mb-2 block text-xs uppercase tracking-widest" style={{ color: "var(--gray)" }}>
-                          {label}
-                        </label>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  {[
+                    { key: "name", label: "Full Name", type: "text" },
+                    { key: "email", label: "Email", type: "email" },
+                    { key: "phone", label: "Phone / WhatsApp", type: "tel" },
+                    { key: "country", label: "Country", type: "text" },
+                  ].map(({ key, label, type }) => (
+                    <div key={key}>
+                      <label
+                        className="mb-2 block text-xs uppercase tracking-widest"
+                        style={{ color: "var(--gray)" }}
+                      >
+                        {label}
+                      </label>
 
-                        <input
-                          required
-                          type={type}
-                          value={form[key as keyof typeof form]}
-                          onChange={(e) => setForm((f) => ({ ...f, [key]: e.target.value }))}
-                          className="w-full rounded-2xl px-4 py-4 text-sm outline-none"
-                          style={{
-                            background: "rgba(10,10,10,0.55)",
-                            border: "1px solid rgba(201,168,76,0.16)",
-                            color: "var(--white)",
-                          }}
-                        />
-                      </div>
-                    ))}
-                  </div>
+                      <input
+                        required
+                        type={type}
+                        value={form[key as keyof typeof form]}
+                        onChange={(e) =>
+                          setForm((f) => ({ ...f, [key]: e.target.value }))
+                        }
+                        className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+                        style={{
+                          background: "var(--black-3)",
+                          border: "1px solid rgba(201,168,76,0.18)",
+                          color: "var(--white)",
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
 
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                   <div>
-                    <label className="mb-2 block text-xs uppercase tracking-widest" style={{ color: "var(--gray)" }}>
-                      Budget range
+                    <label
+                      className="mb-2 block text-xs uppercase tracking-widest"
+                      style={{ color: "var(--gray)" }}
+                    >
+                      Budget Range
                     </label>
 
                     <select
                       required
                       value={form.budget}
-                      onChange={(e) => setForm((f) => ({ ...f, budget: e.target.value }))}
-                      className="w-full rounded-2xl px-4 py-4 text-sm outline-none"
+                      onChange={(e) =>
+                        setForm((f) => ({ ...f, budget: e.target.value }))
+                      }
+                      className="w-full rounded-xl px-4 py-3 text-sm outline-none"
                       style={{
-                        background: "rgba(10,10,10,0.55)",
-                        border: "1px solid rgba(201,168,76,0.16)",
+                        background: "var(--black-3)",
+                        border: "1px solid rgba(201,168,76,0.18)",
                         color: "var(--white)",
                       }}
                     >
@@ -154,36 +200,74 @@ export default function ConsultationPage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-xs uppercase tracking-widest" style={{ color: "var(--gray)" }}>
-                      Acquisition details
+                    <label
+                      className="mb-2 block text-xs uppercase tracking-widest"
+                      style={{ color: "var(--gray)" }}
+                    >
+                      Timeline
                     </label>
 
-                    <textarea
-                      rows={6}
-                      value={form.message}
-                      onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-                      placeholder="Asset type, preferred brands, timeline, delivery location, or special requirements..."
-                      className="w-full resize-none rounded-2xl px-4 py-4 text-sm outline-none"
+                    <select
+                      required
+                      value={form.timeline}
+                      onChange={(e) =>
+                        setForm((f) => ({ ...f, timeline: e.target.value }))
+                      }
+                      className="w-full rounded-xl px-4 py-3 text-sm outline-none"
                       style={{
-                        background: "rgba(10,10,10,0.55)",
-                        border: "1px solid rgba(201,168,76,0.16)",
+                        background: "var(--black-3)",
+                        border: "1px solid rgba(201,168,76,0.18)",
                         color: "var(--white)",
                       }}
-                    />
+                    >
+                      <option value="">Select timeline</option>
+                      <option>Immediately</option>
+                      <option>Within 1 month</option>
+                      <option>1–3 months</option>
+                      <option>3–6 months</option>
+                      <option>Just exploring</option>
+                    </select>
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    className="btn-gold flex w-full items-center justify-center gap-2 rounded-2xl py-5 text-sm font-bold uppercase tracking-[0.2em]"
+                <div>
+                  <label
+                    className="mb-2 block text-xs uppercase tracking-widest"
+                    style={{ color: "var(--gray)" }}
                   >
-                    Request Private Consultation <ArrowRight size={16} />
-                  </button>
+                    Acquisition Details
+                  </label>
 
-                  <p className="text-center text-xs" style={{ color: "var(--gray)" }}>
-                    Strictly confidential · No obligation · Senior concierge only
-                  </p>
-                </form>
-              </>
+                  <textarea
+                    rows={5}
+                    value={form.message}
+                    onChange={(e) =>
+                      setForm((f) => ({ ...f, message: e.target.value }))
+                    }
+                    placeholder="Asset type, preferred brands, delivery location, special requirements..."
+                    className="w-full resize-none rounded-xl px-4 py-3 text-sm outline-none"
+                    style={{
+                      background: "var(--black-3)",
+                      border: "1px solid rgba(201,168,76,0.18)",
+                      color: "var(--white)",
+                    }}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn-gold flex w-full items-center justify-center gap-2 rounded-xl py-4 text-sm font-bold uppercase tracking-widest"
+                >
+                  Request Private Consultation <ArrowRight size={16} />
+                </button>
+
+                <p
+                  className="text-center text-xs"
+                  style={{ color: "var(--gray)" }}
+                >
+                  Strictly confidential · No obligation · Senior concierge only
+                </p>
+              </form>
             )}
           </div>
         </div>
