@@ -11,6 +11,16 @@
   --gray: #888888;
   --gray-light: #AAAAAA;
   --white: #F5F5F5;
+
+  /* Navbar height: ticker 28px + nav 80px */
+  --nav-height: 108px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    /* Mobile navbar has no ticker */
+    --nav-height: 80px;
+  }
 }
 
 @theme inline {
@@ -28,6 +38,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--black);
 }
 
 body {
@@ -35,6 +46,11 @@ body {
   color: var(--white);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+main {
+  background: var(--black);
 }
 
 ::selection {
@@ -42,23 +58,66 @@ body {
   color: var(--black);
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--black-2); }
-::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
 
-.text-gold { color: var(--gold); }
-.text-gold-light { color: var(--gold-light); }
-.text-gray { color: var(--gray); }
-.text-gray-light { color: var(--gray-light); }
-.bg-gold { background-color: var(--gold); }
-.bg-black-2 { background-color: var(--black-2); }
-.bg-black-3 { background-color: var(--black-3); }
-.bg-black-4 { background-color: var(--black-4); }
-.border-gold { border-color: var(--gold); }
-.border-gold-dark { border-color: var(--gold-dark); }
+::-webkit-scrollbar-track {
+  background: var(--black-2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 3px;
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.text-gold-light {
+  color: var(--gold-light);
+}
+
+.text-gray {
+  color: var(--gray);
+}
+
+.text-gray-light {
+  color: var(--gray-light);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}
+
+.bg-black-2 {
+  background-color: var(--black-2);
+}
+
+.bg-black-3 {
+  background-color: var(--black-3);
+}
+
+.bg-black-4 {
+  background-color: var(--black-4);
+}
+
+.border-gold {
+  border-color: var(--gold);
+}
+
+.border-gold-dark {
+  border-color: var(--gold-dark);
+}
 
 .gold-gradient {
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  background: linear-gradient(
+    135deg,
+    var(--gold-dark),
+    var(--gold),
+    var(--gold-light)
+  );
 }
 
 .gold-text-gradient {
@@ -83,7 +142,9 @@ body {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 40px rgba(201, 168, 76, 0.25);
+  box-shadow:
+    0 0 40px rgba(201, 168, 76, 0.25),
+    0 16px 60px rgba(0, 0, 0, 0.45);
   transform: translateY(-2px);
 }
 
@@ -122,10 +183,31 @@ body {
 
 .card-luxury:hover {
   border-color: rgba(201, 168, 76, 0.4);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(201, 168, 76, 0.1);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(201, 168, 76, 0.1);
 }
 
 .divider-gold {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.page-shell {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(24px, 4vw, 64px);
+  padding-right: clamp(24px, 4vw, 64px);
+}
+
+.page-top-spacing {
+  padding-top: calc(var(--nav-height) + 40px);
+}
+
+@media (max-width: 767px) {
+  .page-top-spacing {
+    padding-top: calc(var(--nav-height) + 28px);
+  }
 }
