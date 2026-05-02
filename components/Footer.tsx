@@ -1,30 +1,30 @@
 "use client";
-
 import Link from "next/link";
-
-const containerClass =
-  "mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-12 xl:px-16";
 
 export default function Footer() {
   return (
     <footer
-      className="relative z-10"
       style={{
         background: "var(--black-2)",
         borderTop: "1px solid rgba(201,168,76,0.12)",
       }}
     >
-      <div className={`${containerClass} py-20`}>
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-4">
-          <div>
-            <div className="mb-5 flex items-center gap-2">
+      {/* 🔥 MÁS ANCHO + MÁS AIRE */}
+      <div className="mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16 py-20">
+
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+
+          {/* Brand (más ancho visual) */}
+          <div className="md:col-span-1 pr-6">
+            <div className="flex items-center gap-2 mb-5">
               <div
-                className="flex h-9 w-9 items-center justify-center rounded-full"
+                className="w-9 h-9 rounded-full flex items-center justify-center"
                 style={{
                   background: "linear-gradient(135deg, #9A7A2E, #C9A84C)",
                 }}
               >
-                <span className="text-sm font-bold text-black">L</span>
+                <span className="text-black font-bold text-sm">L</span>
               </div>
 
               <span className="text-xl font-bold tracking-wide">
@@ -34,18 +34,17 @@ export default function Footer() {
             </div>
 
             <p
-              className="max-w-sm text-sm leading-relaxed"
+              className="text-sm leading-relaxed max-w-sm"
               style={{ color: "var(--gray)" }}
             >
-              The world&apos;s premier crypto luxury marketplace. Own the
-              extraordinary with the currency of the future.
+              The world&apos;s premier crypto luxury marketplace. Own the extraordinary with the currency of the future.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex gap-3">
               {["BTC", "ETH", "USDC"].map((c) => (
                 <span
                   key={c}
-                  className="rounded border px-3 py-1 font-mono text-xs"
+                  className="px-3 py-1 rounded text-xs font-mono border"
                   style={{
                     borderColor: "rgba(201,168,76,0.3)",
                     color: "var(--gold)",
@@ -58,8 +57,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h4 className="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
+          {/* Shop */}
+          <div className="pl-2">
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-gold mb-5">
               Shop
             </h4>
 
@@ -85,8 +85,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
+          {/* Info */}
+          <div className="pl-2">
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-gold mb-5">
               Info
             </h4>
 
@@ -111,8 +112,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
+          {/* Contact */}
+          <div className="pl-2">
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-gold mb-5">
               Contact
             </h4>
 
@@ -123,43 +125,22 @@ export default function Footer() {
               <li>⏰ 24/7 Support</li>
             </ul>
 
-            <div className="mt-7">
+            <div className="mt-6">
               <p
-                className="mb-3 text-xs uppercase tracking-widest"
+                className="text-xs uppercase tracking-widest mb-3"
                 style={{ color: "var(--gray)" }}
               >
                 Secure Payments
               </p>
 
-              <div className="flex flex-wrap gap-2">
-                <span
-                  className="rounded px-2 py-1 text-xs"
-                  style={{
-                    background: "rgba(247,147,26,0.1)",
-                    color: "#F7931A",
-                    border: "1px solid rgba(247,147,26,0.2)",
-                  }}
-                >
+              <div className="flex gap-2">
+                <span className="px-2 py-1 rounded text-xs" style={{ background: "rgba(247,147,26,0.1)", color: "#F7931A" }}>
                   ₿ BTC
                 </span>
-                <span
-                  className="rounded px-2 py-1 text-xs"
-                  style={{
-                    background: "rgba(98,126,234,0.1)",
-                    color: "#627EEA",
-                    border: "1px solid rgba(98,126,234,0.2)",
-                  }}
-                >
+                <span className="px-2 py-1 rounded text-xs" style={{ background: "rgba(98,126,234,0.1)", color: "#627EEA" }}>
                   Ξ ETH
                 </span>
-                <span
-                  className="rounded px-2 py-1 text-xs"
-                  style={{
-                    background: "rgba(39,117,202,0.1)",
-                    color: "#2775CA",
-                    border: "1px solid rgba(39,117,202,0.2)",
-                  }}
-                >
+                <span className="px-2 py-1 rounded text-xs" style={{ background: "rgba(39,117,202,0.1)", color: "#2775CA" }}>
                   $ USDC
                 </span>
               </div>
@@ -167,24 +148,19 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Divider */}
         <div className="divider-gold my-12" />
 
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+        {/* Bottom */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-5">
           <p className="text-xs" style={{ color: "var(--gray)" }}>
-            © 2026 LuxChain. All rights reserved. Crypto prices are indicative
-            only.
+            © 2026 LuxChain. All rights reserved. Crypto prices are indicative only.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-6 text-xs">
-            <Link href="/privacy" style={{ color: "var(--gray)" }}>
-              Privacy Policy
-            </Link>
-            <Link href="/terms" style={{ color: "var(--gray)" }}>
-              Terms of Service
-            </Link>
-            <Link href="/cookies" style={{ color: "var(--gray)" }}>
-              Cookies
-            </Link>
+          <div className="flex gap-6 text-xs" style={{ color: "var(--gray)" }}>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
+            <Link href="/cookies">Cookies</Link>
           </div>
         </div>
       </div>
