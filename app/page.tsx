@@ -148,28 +148,34 @@ export default function HomePage() {
       </section>
 
       {/* How it works — editorial */}
-      <section className="py-24 px-6" style={{ background: "var(--black-3)" }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-widest text-gold mb-3">The LuxChain Process</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Acquisition in 4 Steps</h2>
-          <p className="mb-16" style={{ color: "var(--gray)" }}>From first contact to global delivery — our concierge handles everything.</p>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <section className="py-32 px-6" style={{ background: "var(--black-3)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <p className="text-xs uppercase tracking-widest text-gold mb-4">The LuxChain Process</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-5">Acquisition in 4 Steps</h2>
+            <p className="text-lg max-w-xl mx-auto" style={{ color: "var(--gray)" }}>From first contact to global delivery — our concierge handles everything.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
             {[
-              { step: "01", icon: "🔍", title: "Discover", desc: "Browse or describe what you want. Our team can source off-market assets." },
-              { step: "02", icon: "🤝", title: "Consult", desc: "A senior concierge is assigned within 2 hours to guide your acquisition." },
-              { step: "03", icon: "🔐", title: "Secure", desc: "Pay in BTC, ETH or USDC to our audited escrow. Funds protected until delivery." },
+              { step: "01", icon: "🔍", title: "Discover", desc: "Browse or describe what you want. Our team can source off-market assets worldwide." },
+              { step: "02", icon: "🤝", title: "Consult", desc: "A senior concierge is assigned within 2 hours to guide your acquisition end-to-end." },
+              { step: "03", icon: "🔐", title: "Secure", desc: "Pay in BTC, ETH or USDC to our audited escrow. Funds are protected until delivery." },
               { step: "04", icon: "🌍", title: "Receive", desc: "Your asset is delivered anywhere in the world with full legal documentation." },
-            ].map(({ step, icon, title, desc }) => (
-              <div key={step} className="flex flex-col items-center text-center">
-                <div className="text-3xl mb-3">{icon}</div>
-                <div className="text-xs font-mono text-gold mb-1">{step}</div>
-                <h3 className="font-bold text-lg mb-2">{title}</h3>
+            ].map(({ step, icon, title, desc }, i) => (
+              <div key={step} className="relative flex flex-col items-center text-center px-8 py-10"
+                style={{ borderRight: i < 3 ? "1px solid rgba(201,168,76,0.1)" : "none" }}>
+                <div className="w-20 h-20 rounded-full flex items-center justify-center text-4xl mb-6"
+                  style={{ background: "rgba(201,168,76,0.07)", border: "1px solid rgba(201,168,76,0.2)" }}>
+                  {icon}
+                </div>
+                <div className="text-xs font-mono text-gold mb-2 tracking-widest">{step}</div>
+                <h3 className="font-bold text-xl mb-3">{title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--gray)" }}>{desc}</p>
               </div>
             ))}
           </div>
-          <div className="mt-14">
-            <Link href="/consultation" className="btn-gold px-8 py-4 rounded text-sm uppercase tracking-widest inline-flex items-center gap-2">
+          <div className="text-center mt-16">
+            <Link href="/consultation" className="btn-gold px-10 py-5 rounded text-sm uppercase tracking-widest inline-flex items-center gap-2">
               Book Your Consultation <ArrowRight size={16} />
             </Link>
           </div>
@@ -177,13 +183,13 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-6" style={{ background: "var(--black)" }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-xs uppercase tracking-widest text-gold mb-3">Client Testimonials</p>
-            <h2 className="text-3xl md:text-4xl font-bold">Trusted by Ultra-HNW Buyers</h2>
+      <section className="py-32 px-6" style={{ background: "var(--black)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-xs uppercase tracking-widest text-gold mb-4">Client Testimonials</p>
+            <h2 className="text-4xl md:text-5xl font-bold">Trusted by Ultra-HNW Buyers</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 quote: "LuxChain made buying my Rolls-Royce with ETH completely seamless. The concierge handled everything — KYC, customs, delivery to Dubai. Impeccable service.",
@@ -204,15 +210,15 @@ export default function HomePage() {
                 asset: "Gulfstream G700 · $78M",
               },
             ].map(({ quote, name, role, asset }) => (
-              <div key={name} className="rounded-2xl p-6 flex flex-col gap-4"
-                style={{ background: "var(--black-2)", border: "1px solid rgba(201,168,76,0.12)" }}>
-                <div className="text-gold text-3xl font-serif leading-none">&ldquo;</div>
-                <p className="text-sm leading-relaxed flex-1" style={{ color: "var(--gray-light)" }}>{quote}</p>
+              <div key={name} className="rounded-2xl p-10 flex flex-col gap-6"
+                style={{ background: "var(--black-2)", border: "1px solid rgba(201,168,76,0.15)" }}>
+                <div className="text-gold font-serif leading-none" style={{ fontSize: "5rem", lineHeight: 0.8, opacity: 0.4 }}>&ldquo;</div>
+                <p className="text-base leading-relaxed flex-1" style={{ color: "var(--gray-light)" }}>{quote}</p>
                 <div className="divider-gold" />
                 <div>
-                  <p className="font-semibold text-sm">{name}</p>
-                  <p className="text-xs" style={{ color: "var(--gray)" }}>{role}</p>
-                  <p className="text-xs text-gold mt-1 font-mono">{asset}</p>
+                  <p className="font-semibold">{name}</p>
+                  <p className="text-sm mt-0.5" style={{ color: "var(--gray)" }}>{role}</p>
+                  <p className="text-sm text-gold mt-2 font-mono">{asset}</p>
                 </div>
               </div>
             ))}
@@ -221,19 +227,27 @@ export default function HomePage() {
       </section>
 
       {/* Trust */}
-      <section className="py-20 px-6" style={{ background: "var(--black-2)" }}>
-        <div className="max-w-5xl mx-auto">
+      <section className="py-28 px-6" style={{ background: "var(--black-2)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-xs uppercase tracking-widest text-gold mb-4">Why LuxChain</p>
+            <h2 className="text-4xl md:text-5xl font-bold">Built for the Ultra-Premium Buyer</h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { icon: <Shield size={24} />, title: "Escrow Smart Contract", desc: "Audited escrow holds funds until confirmed delivery." },
-              { icon: <Globe size={24} />, title: "Worldwide Logistics", desc: "Specialist partners in 180+ countries for any asset type." },
-              { icon: <Zap size={24} />, title: "Instant Settlement", desc: "Crypto payments settle in minutes with zero bank friction." },
-              { icon: <Lock size={24} />, title: "Full Compliance", desc: "KYC, AML, export/import, title transfer — all handled." },
+              { icon: <Shield size={36} />, title: "Escrow Smart Contract", desc: "Audited escrow holds your funds until confirmed delivery. Zero counterparty risk." },
+              { icon: <Globe size={36} />, title: "Worldwide Logistics", desc: "Specialist partners in 180+ countries for any asset type — cars, jets, real estate." },
+              { icon: <Zap size={36} />, title: "Instant Settlement", desc: "Crypto payments settle in minutes with zero bank friction or wire delays." },
+              { icon: <Lock size={36} />, title: "Full Compliance", desc: "KYC, AML, export/import, title transfer and legal documentation — all handled." },
             ].map(({ icon, title, desc }) => (
-              <div key={title} className="glass rounded-xl p-6 flex flex-col items-center text-center gap-3">
-                <div className="text-gold">{icon}</div>
-                <h3 className="font-semibold text-sm">{title}</h3>
-                <p className="text-xs leading-relaxed" style={{ color: "var(--gray)" }}>{desc}</p>
+              <div key={title} className="rounded-2xl p-8 flex flex-col items-center text-center gap-5"
+                style={{ background: "var(--black-3)", border: "1px solid rgba(201,168,76,0.12)" }}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-gold"
+                  style={{ background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.2)" }}>
+                  {icon}
+                </div>
+                <h3 className="font-bold text-base">{title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--gray)" }}>{desc}</p>
               </div>
             ))}
           </div>
