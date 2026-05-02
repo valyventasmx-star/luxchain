@@ -6,16 +6,7 @@ import { Menu, X, Calendar } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [btcPrice, setBtcPrice] = useState<string>("78,463");
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     fetch(
@@ -40,14 +31,13 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed left-0 right-0 top-0 z-50"
+      className="sticky left-0 right-0 top-0 z-50"
       style={{
-        background: scrolled ? "rgba(10,10,10,0.97)" : "rgba(10,10,10,0.72)",
+        background: "rgba(10,10,10,0.97)",
         backdropFilter: "blur(16px)",
         borderBottom: "1px solid rgba(201,168,76,0.12)",
       }}
     >
-      {/* Ticker - always keeps the same height on desktop */}
       <div
         className="hidden h-7 items-center justify-center gap-6 overflow-hidden px-6 text-xs font-mono md:flex"
         style={{
@@ -71,7 +61,6 @@ export default function Navbar() {
       </div>
 
       <nav className="mx-auto flex h-20 w-full max-w-[1440px] items-center justify-between px-6 sm:px-8 lg:px-12 xl:px-16">
-        {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <div
             className="flex h-9 w-9 items-center justify-center rounded-full"
@@ -88,7 +77,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden items-center gap-7 md:flex">
           {navLinks.map(({ href, label }) => (
             <Link
@@ -102,7 +90,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="hidden items-center gap-3 md:flex">
           <Link
             href="/consultation"
@@ -123,7 +110,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="text-gold md:hidden"
           onClick={() => setOpen((v) => !v)}
@@ -133,7 +119,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {open && (
         <div
           className="border-t md:hidden"
