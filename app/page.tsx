@@ -27,7 +27,7 @@ export default async function HomePage() {
   return (
     <div className="w-full overflow-x-hidden" style={{ background: "var(--black)" }}>
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-[120px] md:pt-[132px]">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-[130px] md:pt-[150px] pb-24">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&q=80"
@@ -40,7 +40,7 @@ export default async function HomePage() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.68) 50%, rgba(10,10,10,0.94) 100%)",
+                "linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.95) 100%)",
             }}
           />
         </div>
@@ -58,14 +58,14 @@ export default async function HomePage() {
             Worldwide Crypto Payments Active — 180+ Countries
           </div>
 
-          <h1 className="mb-6 text-5xl font-bold leading-none tracking-tight md:text-7xl lg:text-8xl">
+          <h1 className="mb-8 text-5xl font-bold leading-none tracking-tight md:text-7xl lg:text-8xl">
             <span style={{ color: "var(--white)" }}>Own The</span>
             <br />
             <span className="gold-text-gradient">Extraordinary</span>
           </h1>
 
           <p
-            className="mx-auto mb-10 max-w-2xl text-center text-lg leading-relaxed md:text-xl"
+            className="mx-auto mb-12 max-w-2xl text-center text-lg leading-relaxed md:text-xl"
             style={{ color: "var(--gray-light)" }}
           >
             The world&apos;s premier crypto luxury marketplace. Supercars, real
@@ -89,7 +89,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="mx-auto mt-14 grid w-full max-w-2xl grid-cols-3 gap-6 md:gap-10">
+          <div className="mx-auto mt-16 grid w-full max-w-2xl grid-cols-3 gap-6 md:gap-10">
             {[
               { value: "$2B+", label: "Assets Available" },
               { value: "180+", label: "Countries Served" },
@@ -100,7 +100,7 @@ export default async function HomePage() {
                   {value}
                 </div>
                 <div
-                  className="mt-1 text-xs uppercase tracking-widest"
+                  className="mt-2 text-xs uppercase tracking-widest"
                   style={{ color: "var(--gray)" }}
                 >
                   {label}
@@ -113,7 +113,7 @@ export default async function HomePage() {
 
       {/* As seen in */}
       <section
-        className="border-y py-10"
+        className="border-y py-14"
         style={{
           background: "var(--black-2)",
           borderColor: "rgba(201,168,76,0.08)",
@@ -121,7 +121,7 @@ export default async function HomePage() {
       >
         <div className={containerClass}>
           <p
-            className="mb-6 text-center text-xs uppercase tracking-widest"
+            className="mb-8 text-center text-xs uppercase tracking-widest"
             style={{ color: "var(--gray)" }}
           >
             Trusted Worldwide
@@ -147,10 +147,10 @@ export default async function HomePage() {
       </section>
 
       {/* Categories */}
-      <section className="py-24" style={{ background: "var(--black-2)" }}>
+      <section className="py-32" style={{ background: "var(--black-2)" }}>
         <div className={containerClass}>
-          <div className="mb-12 text-center">
-            <p className="mb-3 text-xs uppercase tracking-widest text-gold">
+          <div className="mb-16 text-center">
+            <p className="mb-4 text-xs uppercase tracking-widest text-gold">
               Browse by Category
             </p>
             <h2 className="text-3xl font-bold md:text-5xl">
@@ -158,12 +158,12 @@ export default async function HomePage() {
             </h2>
           </div>
 
-          <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
+          <div className="grid w-full grid-cols-2 gap-5 md:grid-cols-3 xl:grid-cols-6">
             {categories.map((cat) => (
               <Link
                 key={cat.id}
                 href={`/catalog?cat=${cat.id}`}
-                className="card-luxury hover-glow group flex min-h-[140px] flex-col items-center justify-center gap-3 rounded-xl p-5 text-center"
+                className="card-luxury hover-glow group flex min-h-[150px] flex-col items-center justify-center gap-4 rounded-xl p-5 text-center"
               >
                 <span className="text-3xl">{cat.icon}</span>
                 <div>
@@ -171,7 +171,7 @@ export default async function HomePage() {
                     {cat.label}
                   </div>
                   <div
-                    className="mt-0.5 text-xs"
+                    className="mt-1 text-xs"
                     style={{ color: "var(--gray)" }}
                   >
                     {cat.count} items
@@ -184,11 +184,11 @@ export default async function HomePage() {
       </section>
 
       {/* Featured */}
-      <section className="py-28" style={{ background: "var(--black)" }}>
+      <section className="py-32" style={{ background: "var(--black)" }}>
         <div className={containerClass}>
-          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="mb-3 text-xs uppercase tracking-widest text-gold">
+              <p className="mb-4 text-xs uppercase tracking-widest text-gold">
                 Handpicked by Our Concierge
               </p>
               <h2 className="text-3xl font-bold md:text-5xl">
@@ -243,21 +243,21 @@ export default async function HomePage() {
                   </div>
                 </div>
 
-                <div className="p-5">
-                  <p className="mb-0.5 text-xs uppercase tracking-widest text-gold">
+                <div className="p-6">
+                  <p className="mb-1 text-xs uppercase tracking-widest text-gold">
                     {product.brand}
                   </p>
                   <h3 className="text-lg font-semibold leading-tight">
                     {product.name}
                   </h3>
                   <p
-                    className="mb-3 mt-1 text-xs"
+                    className="mb-4 mt-2 text-xs"
                     style={{ color: "var(--gray)" }}
                   >
                     📍 {product.location}
                   </p>
 
-                  <div className="divider-gold my-3" />
+                  <div className="divider-gold my-4" />
 
                   <div className="flex items-center justify-between gap-4">
                     <div className="text-lg font-bold text-gold">
@@ -275,13 +275,13 @@ export default async function HomePage() {
       </section>
 
       {/* How it works */}
-      <section className="py-28" style={{ background: "var(--black-3)" }}>
+      <section className="py-36" style={{ background: "var(--black-3)" }}>
         <div className={containerClass}>
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <p className="mb-4 text-xs uppercase tracking-widest text-gold">
+          <div className="mx-auto mb-20 max-w-3xl text-center">
+            <p className="mb-5 text-xs uppercase tracking-widest text-gold">
               The LuxChain Process
             </p>
-            <h2 className="mb-5 text-4xl font-bold md:text-6xl">
+            <h2 className="mb-6 text-4xl font-bold md:text-6xl">
               Acquisition in 4 Steps
             </h2>
             <p className="text-base" style={{ color: "var(--gray)" }}>
@@ -290,7 +290,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid w-full grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-4">
             {[
               {
                 step: "01",
@@ -319,14 +319,14 @@ export default async function HomePage() {
             ].map(({ step, icon, title, desc }) => (
               <div
                 key={step}
-                className="flex min-h-[310px] flex-col items-center rounded-2xl p-8 text-center"
+                className="flex min-h-[300px] flex-col items-center justify-center rounded-2xl p-8 text-center"
                 style={{
                   background: "rgba(201,168,76,0.04)",
                   border: "1px solid rgba(201,168,76,0.12)",
                 }}
               >
                 <div
-                  className="mb-5 flex h-20 w-20 items-center justify-center rounded-full text-4xl"
+                  className="mb-6 flex h-20 w-20 items-center justify-center rounded-full text-4xl"
                   style={{
                     background: "rgba(201,168,76,0.08)",
                     border: "1px solid rgba(201,168,76,0.22)",
@@ -338,9 +338,9 @@ export default async function HomePage() {
                 <div className="mb-2 font-mono text-xs tracking-widest text-gold">
                   {step}
                 </div>
-                <h3 className="mb-3 text-lg font-bold">{title}</h3>
+                <h3 className="mb-4 text-lg font-bold">{title}</h3>
                 <p
-                  className="text-sm leading-relaxed"
+                  className="max-w-xs text-sm leading-relaxed"
                   style={{ color: "var(--gray)" }}
                 >
                   {desc}
@@ -349,7 +349,7 @@ export default async function HomePage() {
             ))}
           </div>
 
-          <div className="mt-14 text-center">
+          <div className="mt-16 text-center">
             <Link
               href="/consultation"
               className="btn-gold inline-flex items-center gap-2 rounded px-10 py-4 text-sm uppercase tracking-widest"
@@ -361,10 +361,10 @@ export default async function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-28" style={{ background: "var(--black)" }}>
+      <section className="py-36" style={{ background: "var(--black)" }}>
         <div className={containerClass}>
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-xs uppercase tracking-widest text-gold">
+          <div className="mb-20 text-center">
+            <p className="mb-5 text-xs uppercase tracking-widest text-gold">
               Client Testimonials
             </p>
             <h2 className="text-4xl font-bold md:text-6xl">
@@ -398,7 +398,7 @@ export default async function HomePage() {
             ].map(({ quote, name, role, asset }) => (
               <div
                 key={name}
-                className="relative flex min-h-[300px] flex-col overflow-hidden rounded-2xl p-8"
+                className="relative flex min-h-[310px] flex-col overflow-hidden rounded-2xl p-8"
                 style={{
                   background: "var(--black-2)",
                   border: "1px solid rgba(201,168,76,0.15)",
@@ -412,20 +412,20 @@ export default async function HomePage() {
                 </div>
 
                 <p
-                  className="relative z-10 flex-1 pt-6 text-base leading-relaxed"
+                  className="relative z-10 flex-1 pt-7 text-base leading-relaxed"
                   style={{ color: "var(--gray-light)" }}
                 >
                   {quote}
                 </p>
 
-                <div className="divider-gold my-6" />
+                <div className="divider-gold my-7" />
 
                 <div>
                   <p className="font-semibold">{name}</p>
                   <p className="mt-1 text-sm" style={{ color: "var(--gray)" }}>
                     {role}
                   </p>
-                  <p className="mt-2 font-mono text-sm text-gold">{asset}</p>
+                  <p className="mt-3 font-mono text-sm text-gold">{asset}</p>
                 </div>
               </div>
             ))}
@@ -434,47 +434,52 @@ export default async function HomePage() {
       </section>
 
       {/* Trust */}
-      <section className="py-28" style={{ background: "var(--black-2)" }}>
+      <section className="py-36" style={{ background: "var(--black-2)" }}>
         <div className={containerClass}>
-          <div className="mx-auto mb-16 max-w-4xl text-center">
-            <p className="mb-4 text-xs uppercase tracking-widest text-gold">
+          <div className="mx-auto mb-20 max-w-4xl text-center">
+            <p className="mb-5 text-xs uppercase tracking-widest text-gold">
               Why LuxChain
             </p>
-            <h2 className="mb-4 text-4xl font-bold md:text-6xl">
+
+            <h2 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               Built for the Ultra-Premium Buyer
             </h2>
-            <p className="text-base" style={{ color: "var(--gray)" }}>
+
+            <p
+              className="mx-auto max-w-3xl text-base md:text-lg"
+              style={{ color: "var(--gray)" }}
+            >
               Every transaction is protected, compliant, and delivered with
               white-glove precision.
             </p>
           </div>
 
-          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
             {[
               {
-                icon: <Shield size={36} />,
+                icon: <Shield size={34} />,
                 title: "Escrow Smart Contract",
                 desc: "Audited escrow holds your funds until confirmed delivery. Zero counterparty risk.",
               },
               {
-                icon: <Globe size={36} />,
+                icon: <Globe size={34} />,
                 title: "Worldwide Logistics",
                 desc: "Specialist partners in 180+ countries for any asset type — cars, jets, real estate.",
               },
               {
-                icon: <Zap size={36} />,
+                icon: <Zap size={34} />,
                 title: "Instant Settlement",
                 desc: "Crypto payments settle in minutes with zero bank friction or wire delays.",
               },
               {
-                icon: <Lock size={36} />,
+                icon: <Lock size={34} />,
                 title: "Full Compliance",
                 desc: "KYC, AML, export/import, title transfer and legal documentation — all handled.",
               },
             ].map(({ icon, title, desc }) => (
               <div
                 key={title}
-                className="flex min-h-[270px] flex-col items-center gap-5 rounded-2xl p-8 text-center"
+                className="flex min-h-[250px] flex-col items-center justify-center gap-6 rounded-2xl p-8 text-center"
                 style={{
                   background: "var(--black-3)",
                   border: "1px solid rgba(201,168,76,0.12)",
@@ -489,9 +494,11 @@ export default async function HomePage() {
                 >
                   {icon}
                 </div>
+
                 <h3 className="text-base font-bold">{title}</h3>
+
                 <p
-                  className="text-sm leading-relaxed"
+                  className="max-w-xs text-sm leading-relaxed"
                   style={{ color: "var(--gray)" }}
                 >
                   {desc}
@@ -504,20 +511,20 @@ export default async function HomePage() {
 
       {/* CTA */}
       <section
-        className="relative overflow-hidden py-32 md:py-40"
+        className="relative flex min-h-[700px] items-center overflow-hidden py-40"
         style={{ background: "var(--black)" }}
       >
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, rgba(10,10,10,0) 68%)",
           }}
         />
 
-        <div className={`${containerClass} relative pb-20 text-center md:pb-28`}>
+        <div className={`${containerClass} relative text-center`}>
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 text-4xl font-bold md:text-6xl">
+            <h2 className="mb-8 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               Ready to Acquire
               <br />
               <span className="gold-text-gradient">
@@ -526,7 +533,7 @@ export default async function HomePage() {
             </h2>
 
             <p
-              className="mb-10 text-lg"
+              className="mx-auto mb-12 max-w-2xl text-lg"
               style={{ color: "var(--gray-light)" }}
             >
               Speak privately with our concierge. No obligation. 100%
