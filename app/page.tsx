@@ -27,7 +27,7 @@ export default async function HomePage() {
   return (
     <div className="w-full overflow-x-hidden" style={{ background: "var(--black)" }}>
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-28 md:pt-32">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-[120px] md:pt-[132px]">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&q=80"
@@ -45,7 +45,7 @@ export default async function HomePage() {
           />
         </div>
 
-        <div className={`${containerClass} relative z-10 text-center`}>
+        <div className={`${containerClass} relative z-10 flex flex-col items-center text-center`}>
           <div
             className="mb-8 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-widest"
             style={{
@@ -65,7 +65,7 @@ export default async function HomePage() {
           </h1>
 
           <p
-            className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed md:text-xl"
+            className="mx-auto mb-10 max-w-2xl text-center text-lg leading-relaxed md:text-xl"
             style={{ color: "var(--gray-light)" }}
           >
             The world&apos;s premier crypto luxury marketplace. Supercars, real
@@ -89,7 +89,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-xl grid-cols-3 gap-6 md:gap-8">
+          <div className="mx-auto mt-14 grid w-full max-w-2xl grid-cols-3 gap-6 md:gap-10">
             {[
               { value: "$2B+", label: "Assets Available" },
               { value: "180+", label: "Countries Served" },
@@ -504,7 +504,7 @@ export default async function HomePage() {
 
       {/* CTA */}
       <section
-        className="relative overflow-hidden py-28"
+        className="relative overflow-hidden py-32 md:py-40"
         style={{ background: "var(--black)" }}
       >
         <div
@@ -515,7 +515,7 @@ export default async function HomePage() {
           }}
         />
 
-        <div className={`${containerClass} relative text-center`}>
+        <div className={`${containerClass} relative pb-20 text-center md:pb-28`}>
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-6 text-4xl font-bold md:text-6xl">
               Ready to Acquire
